@@ -15,7 +15,7 @@ public class Task {
             return null;
         } else {
             StackTraceElement callingMethod = methodAndClasses[2];
-            return callingMethod.getClassName() + " " + callingMethod.getMethodName();
+            return callingMethod.getClassName() + "#" + callingMethod.getMethodName();
         }
     }
 }
