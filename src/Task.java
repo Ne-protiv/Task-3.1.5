@@ -9,13 +9,12 @@ public class Task {
     }
 
     public static String getCallerClassAndMethodName() {
-        Thread thread =Thread.currentThread();
+        Thread thread = Thread.currentThread();
         StackTraceElement[] methodAndClasses = thread.getStackTrace();
-        int numberOfCallingClass = methodAndClasses.length-2;
-        if (numberOfCallingClass<2){
-        return null;}
-        else {
-            StackTraceElement callingMethod = methodAndClasses[numberOfCallingClass];
+        if (methodAndClasses.length < 4) {
+            return null;
+        } else {
+            StackTraceElement callingMethod = methodAndClasses[2];
             return callingMethod.getClassName() + " " + callingMethod.getMethodName();
         }
     }
